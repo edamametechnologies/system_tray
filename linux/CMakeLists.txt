@@ -7,7 +7,7 @@ project(${PROJECT_NAME} LANGUAGES CXX)
 set(PLUGIN_NAME "${PROJECT_NAME}_plugin")
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(APPINDICATOR REQUIRED IMPORTED_TARGET appindicator3-0.1)
+#pkg_check_modules(APPINDICATOR REQUIRED IMPORTED_TARGET appindicator3-0.1) 
 
 add_library(${PLUGIN_NAME} SHARED
   "system_tray_plugin.cc"
@@ -25,7 +25,7 @@ target_include_directories(${PLUGIN_NAME} INTERFACE
   "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_link_libraries(${PLUGIN_NAME} PRIVATE flutter)
 target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GTK)
-target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::APPINDICATOR)
+#target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::APPINDICATOR)
 
 # List of absolute paths to libraries that should be bundled with the plugin
 set(system_tray_bundled_libraries
